@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* *{margin:0;padding:0;} */
+    body{
+      /* background: rgba(0,0,0,1); */
+    }
+  </style>
+</head>
+<body>
+  <h2>注册</h2>
+  用户名<input type="text" id="uname" onfocus="uname1()" onblur="uname2()" placeholder="用户名"><span id="uuname"></span><br>
+  密码<input type="password" id="upwd" onfocus="upwd1()" onblur="upwd2()" placeholder="密码"><span id="uupwd"></span><br>
+  再次密码<input type="password" id="repeat_pwd" onfocus="repeat_pwd1()" onblur="repeat_pwd2()" placeholder="确认密码"><span id="urepeat_pwd"></span><br>
+  <button onclick="reg()">注册</button>
+  <script>
+    // 获取焦点
+    // 用户名
+    function uname1(){
+      uuname.innerHTML="请输入4-12位用户名";
+    }
+    // 密码
+    function upwd1(){
+      uupwd.innerHTML="请输入6-18位密码";
+    }
+    // 重复密码
+    function repeat_pwd1(){
+      urepeat_pwd.innerHTML="请再次输入密码";
+    }
+    // 失去焦点
+    // 用户名
+    function uname2(){
+      var $uname=uname.value;
+      if(!$uname){
+        uuname.innerHTML="用户名不能为空";
+      }else if($uname.length<4 || $uname.length>12){
+        uuname.innerHTML="长度错误";
+      }else{
+        uuname.innerHTML="正确";
+      }
+    }
+    // 密码
+    function upwd2(){
+      var $upwd=upwd.value;
+      if(!$upwd){
+        uupwd.innerHTML="密码不能为空";
+      }else if($upwd.length<6 || $upwd.length>18){
+        uupwd.innerHTML="长度错误";
+      }else{
+        uupwd.innerHTML="正确";
+      }
+      repeat_pwd2();
+    }
+    // 重复密码
+    function repeat_pwd2(){
+      var $repeat_pwd=repeat_pwd.value;
+      var $upwd=upwd.value;
+      if(!$repeat_pwd){
+        urepeat_pwd.innerHTML="密码不能为空";
+      }else if($repeat_pwd.length<4 || $repeat_pwd.length>18){
+        urepeat_pwd.innerHTML="长度错误";
+      }else if(!($repeat_pwd==$upwd)){
+        urepeat_pwd.innerHTML="两次输入密码不一致";
+      }else{
+        urepeat_pwd.innerHTML="正确";
+      }
+    }
+    function reg(){
+      var $uname=uname.value;
+      var $upwd=upwd.value;
+      var xhr=new XMLHttpRequest();
+      // console.log(xhr);
+      xhr.onreadystatechange=function(){
+        if(xhr.readyState==4&&xhr.status==200){
+          var result=xhr.responseText;
+          // console.log(result);
+          if(result==1){
+            alert("注册成功");
+            // location.href="www.baidu.com";
+            return;
+          }else{
+            alert("注册失败");
+          }
+        }
+      }
+      xhr.open("post","/user/reg",true);
+      xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+      var formdata="&uname="+$uname+"&upwd="+$upwd;
+      xhr.send(formdata);
+    }
+  </script>
+</body>
+</html>

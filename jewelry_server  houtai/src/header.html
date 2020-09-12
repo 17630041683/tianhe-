@@ -1,0 +1,229 @@
+<!-- h_content 背景 —————— h_one 内容大纲 —————— h_first 中间部分楼层 —————— h_aaa 中间内容楼层 —————— h_text 内容文本 —————— h_neirong 内容隐藏文本-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="js/jquery-1.11.3.js"></script>
+  <title>Document</title>
+  <style>
+    *{margin:0;padding:0;}
+    a{color:#909399;text-decoration: none;}
+    /* all */
+    body{
+      background: rgba(0,0,0,1);
+    }
+    #h_content{
+      height:67px;
+      width:1200px;
+      margin: 0 auto;
+      /* padding:0 18.5%; */
+      display: flex;
+      justify-content: space-between;
+      min-width: 800px;
+    }
+    /* 一 */
+    #h_content #h_one img{
+      width:175px;height:21px;
+      padding-top:25px;
+    }
+
+    /* 二 */
+    #h_content #h_two{
+      width:892px;
+      display: flex;
+      justify-content: space-around;
+    }
+    #h_content #h_two #h_first a{
+      font-size: 15px;
+    }
+    #h_content #h_two .no,.no1,.no2,.no3,.no4{
+      display: none;
+    }
+    #h_content #h_two #h_text>a{
+      line-height: 67px;
+    }
+    #h_content #h_two #h_text img{width:10px;}
+    #h_content #h_two #h_text:hover img{
+      transform: rotate(180deg);
+      transition-duration: 0.3s,0.3s;
+    }
+    /* 三 */
+    #h_content #h_three{
+      /* display: flex; */
+      width:137px;
+    }
+    #h_content #h_three a{
+      line-height: 67px;
+    }
+    #h_content .h_four img{
+      margin:22px 0 0 15px;
+    }
+    @media (max-width: 1300px){
+      #h_three{display: none;}
+    }
+  </style>
+</head>
+<body>
+  <!-- 背景 -->
+  <div id="h_content">
+    <!-- 左一LOGO -->
+    <div id="h_one">
+      <img src="img/index/logo.png" alt="">
+    </div>
+    <!-- 中间文字 -->
+    <div id="h_two">
+      <!-- 一 -->
+      <div id="h_first">
+        <div id="h_aaa">
+          <div id="h_text">
+            <a href="#" id="yes">钻戒定制</a>
+            <img src="img/small/a.png" alt="">
+          </div>
+          <div id="h_neirong" class="no">
+            <br>
+            <a href="">黑珍珠</a><br><br>
+            <a href="">珍珠项链</a>
+          </div>
+        </div>
+      </div>
+      <!-- 二 -->
+      <div id="h_first">
+        <div id="h_aaa1">
+          <div id="h_text">
+            <a href="#" id="yes1">求婚钻戒</a>
+            <img src="img/small/a.png" alt="">
+          </div>
+          <div id="h_neirong1" class="no1">
+            <br>
+            <a href="">钻石</a><br><br>
+            <a href="">彩色钻石</a><br><br>
+            <a href="">戒指</a>
+          </div>
+        </div>
+      </div>
+      <!-- 三 -->
+      <div id="h_first">
+        <div id="h_aaa2">
+          <div id="h_text">
+            <a href="#" id="yes2">真爱礼物</a>
+            <img src="img/small/a.png" alt="">
+          </div>
+          <div id="h_neirong2" class="no2">
+            <br>
+            <a href="">白金戒指</a><br><br>
+            <a href="">链坠</a>
+          </div>
+        </div>
+      </div>
+      <!-- 四 -->
+      <div id="h_first">
+        <div id="h_aaa3">
+          <div id="h_text">
+            <a href="#" id="yes3">真爱体验</a>
+            <img src="img/small/a.png" alt="">
+          </div>
+          <div id="h_neirong3" class="no3">
+            <br>
+            <a href="">项链</a><br><br>
+            <a href="">戒指</a>
+          </div>
+        </div>
+      </div>
+      <!-- 五 -->
+      <div id="h_first">
+        <div id="h_aaa4">
+          <div id="h_text">
+            <a href="#" id="yes4">关于我们</a>
+            <img src="img/small/a.png" alt="">
+          </div>
+          <div id="h_neirong4" class="no4">
+            <br>
+            <a href="">品牌理念</a><br><br>
+            <a href="">产品理念</a><br><br>
+            <a href="">合作伙伴</a><br><br>
+            <a href="">加入我们</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 右边小图 -->
+    <div id="h_three">
+      <a class="user_login" href="javascript:;">登录</a>
+      <a href="">/</a>
+      <a class="user_reg" href="javascript:;">注册</a>
+      <!-- 登录注册部分，不打算使用，先放着 -->
+      <!-- <div id="h_img1">
+        <div id="h_imgtwo">
+          <img id="h_big" src="img/small/yonghu.png" alt="">
+          <img src="img/small/shop.png" alt="">
+        </div>
+        <div id="h_denglu" class="dl">
+          <button class="denglu">登录</button>
+          <button c;ass="zhuce">注册</button>
+        </div>
+      </div> -->
+    </div>
+    <div class="h_four">
+      <img src="img/small/shop.png" alt="">
+    </div>
+  </div>
+  <script>
+    // 登录注册部分，不打算使用，先放着
+    // $("#h_big")
+    // .mouseenter(function(){
+    //   $("#h_dneglu").removeClass("dl")
+    // })
+    // $("#h_img1")
+    // .mouseleave(function(){
+    //   $("#h_neirong").addClass("no")
+    // });
+    // 一
+    $("#yes")
+    .mouseenter(function(){
+      $("#h_neirong").removeClass("no")
+    })
+    $("#h_aaa")
+    .mouseleave(function(){
+      $("#h_neirong").addClass("no")
+    });
+    // 二
+    $("#yes1")
+    .mouseenter(function(){
+      $("#h_neirong1").removeClass("no1")
+    })
+    $("#h_aaa1")
+    .mouseleave(function(){
+      $("#h_neirong1").addClass("no1")
+    });
+    // 三
+    $("#yes2")
+    .mouseenter(function(){
+      $("#h_neirong2").removeClass("no2")
+    })
+    $("#h_aaa2")
+    .mouseleave(function(){
+      $("#h_neirong2").addClass("no2")
+    });
+    // 四
+    $("#yes3")
+    .mouseenter(function(){
+      $("#h_neirong3").removeClass("no3")
+    })
+    $("#h_aaa3")
+    .mouseleave(function(){
+      $("#h_neirong3").addClass("no3")
+    });
+    // 五
+    $("#yes4")
+    .mouseenter(function(){
+      $("#h_neirong4").removeClass("no4")
+    })
+    $("#h_aaa4")
+    .mouseleave(function(){
+      $("#h_neirong4").addClass("no4")
+    });
+  </script>
+</body>
+</html>

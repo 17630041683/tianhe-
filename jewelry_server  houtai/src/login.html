@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h2>登录</h2>
+  用户名<input type="text" id="uname" onfocus="uname1()" onblur="uname2()" placeholder="用户名"><span id="uuname"></span><br>
+  密码<input type="password" id="upwd" onfocus="upwd1()" onblur="upwd2()" placeholder="密码"><span id="uupwd"></span><br>
+  <button onclick="login()">登录</button>
+  <script>
+    // 获取焦点
+    // 用户名
+    function uname1(){
+      uuname.innerHTML="请输入4-12位用户名";
+    }
+    // 密码
+    function upwd1(){
+      uupwd.innerHTML="请输入6-18位密码";
+    }
+    // 失去焦点
+    // 用户名
+    function uname2(){
+      var $uname=uname.value;
+      if(!$uname){
+        uuname.innerHTML="用户名不能为空";
+      }else if($uname.length<4 || $uname.length>12){
+        uuname.innerHTML="长度错误";
+      }else{
+        uuname.innerHTML="正确";
+      }
+    }
+    // 密码
+    function upwd2(){
+      var $upwd=upwd.value;
+      if(!$upwd){
+        uupwd.innerHTML="密码不能为空";
+      }else if($upwd.length<6 || $upwd.length>18){
+        uupwd.innerHTML="长度错误";
+      }else{
+        uupwd.innerHTML="正确";
+      }
+    }
+    function login(){
+      var $uname=uname.value;
+      var $upwd=upwd.value;
+      // console.log($uname+"~~"+$upwd);
+      var xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=function(){
+        if(xhr.readyState==4&&xhr.status==200){
+          var result=xhr.responseText;
+          // console.log(result);
+          if(result>0){
+            alert("登陆成功");
+          }else{
+            alert("账号或密码错误");
+          }
+        }
+      }
+      xhr.open("post","/user/login",true);
+      xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+      var formdata="&uname="+$uname+"&upwd="+$upwd;
+      xhr.send(formdata);
+    }
+  </script>
+</body>
+</html>
